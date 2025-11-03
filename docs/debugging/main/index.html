@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>Exploring Programs in Logic - FM Docs</title>
+  
+  <link rel="icon" type="image/x-icon" href="../../../assets/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../../assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script>
+    (() => {
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        const navbarLogo = document.getElementById('navbar-logo');
+        if (navbarLogo) {
+            navbarLogo.src = currentTheme === 'dark' ? '/auto-docs/assets/skylabs_logo_white.svg' : '/auto-docs/assets/skylabs_logo_black.svg';
+        }
+    })();
+  </script>
+  <script src="../../../assets/js/theme-switcher.js"></script>
+</head>
+<body>
+  <header class="navbar navbar-expand-lg bd-navbar sticky-top navbar-light border-bottom">
+    <nav class="container bd-gutter flex-wrap flex-lg-nowrap py-1">
+      <a class="navbar-brand" style="font-size: 1.424rem; font-weight: 600; display: flex; align-items: center; gap: 8pt" href="../../../">
+       <img id="navbar-logo" src="../../../assets/skylabs_logo_black.svg" style="height: 20pt">
+       Skylabs AI
+       <span style="font-size: 1.266rem; font-weight:400; opacity:0.6" class="site-title-suffix"> | FM Docs</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item border rounded shadow-sm">
+            <div class="input-group" id="searchGroup">
+              <span class="input-group-text bg-transparent border-0"><i class="fa-solid fa-magnifying-glass"></i></span>
+              <input name="Search" type="search" id="searchInput" class="form-control bg-transparent text-black" placeholder="Search..." aria-label="Search" value="">
+            </div>
+          </li>
+          <li class="nav-item d-flex align-items-center ms-2">
+            <div id="theme-switcher" class="theme-switcher d-flex align-items-center" style="cursor: pointer;">
+                <i class="fas fa-sun text-warning me-2"></i>
+                <i class="fas fa-moon text-dark"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+         
+  </header>
+
+    <div class="container bd-gutter mt-3 my-md-4 bd-layout" style="display: grid; grid-template-areas: 'sidebar main'; grid-template-columns: 1fr 5fr; gap: 0.5rem;">
+      <aside class="bd-sidebar" style="grid-area: 'sidebar'">
+        
+
+
+
+<div class="flex-shrink-0" style="min-width: 250pt;">
+  <ul class="list-unstyled ps-0 mx-3" id="sidebar">
+    
+    
+      
+        
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../">Home</a>
+</li>
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#quick-start-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../quick-start/">
+    Quick Start
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1" aria-expanded="true">
+  </button>
+</li>
+
+  <div class="collapse" id="quick-start-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../setup/">Setup</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../simple/test/">Very First Verification</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../state_basics/main/">Basics about Program State</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../primitive_reps/main/">Primitive Data</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="./" aria-current="&quot;page&quot;">Exploring Programs in Logic</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#learn-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../learn/">
+    Learn
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="learn-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#functions-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../functions/">
+    Functions
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="functions-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../functions/specification/">Function Specifications</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../functions/verification/">Verifying Some Examples</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#control-flow-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../control-flow/">
+    Control Flow
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="control-flow-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../control_flow/if/"><code>if</code> Statements</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../control_flow/loop/">Loop Invariants</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#classes-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../class_reps/classes/">
+    Classes
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="classes-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../class_reps/main/">Class Representation Predicates</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../class_reps/alt/">Class Representation Predicates, alternative</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../rep_hints/main/">Hints about Reps</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../fractional-sharing/intro/">Sharing with Fractional Permissions</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../troubleshooting/">
+    Troubleshooting
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="troubleshooting-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../common_errors/missing_type_instances/">Dealing with Missing Type Instances</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#scaffold-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../scaffold/">
+    Scaffold
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="scaffold-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../scaffold/getting-started/">Getting Started</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../scaffold/default-specs/">Using Default Specifications</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../scaffold/by_hand/">Providing a Specification by Hand</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#demos-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../demo/">
+    Demos
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="demos-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#point-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../demo/aggregate01/README/">
+    Point
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="point-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/aggregate01/Point.hpp.html">Point.hpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/aggregate01/Point_hpp_spec/">Point_hpp_spec.v</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/aggregate01/Point_hpp_proof/">Point_hpp_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#basics-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../demo/basic/README/">
+    Basics
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="basics-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/basic/main.cpp.html">main.cpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/basic/main_cpp_proof/">main_cpp_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#dataclass-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../demo/data_class/README/">
+    Dataclass
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="dataclass-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/data_class/main.cpp.html">main.cpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/data_class/main_proof/">main_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#forward-list-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../demo/forward_list_v1/README/">
+    Forward List
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="forward-list-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/forward_list_v1/test.cpp.html">test.cpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/forward_list_v1/test_cpp_proof/">test_cpp_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#inlining-specifications-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../demo/inline/README/">
+    Inlining Specifications
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="inlining-specifications-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/inline/inline.hpp.html">inline.hpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/inline/inline_hpp_spec/">inline_hpp_spec.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#singly-linked-list-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../demo/linked_list/README/">
+    Singly-linked List
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="singly-linked-list-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/linked_list/linked_list.hpp.html">linked_list.hpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/linked_list/linked_list.cpp.html">linked_list.cpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/linked_list/linked_list_hpp_spec/">linked_list_hpp_spec.v</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/linked_list/linked_list_cpp_proof/">linked_list_cpp_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#loops-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../demo/loops/README/">
+    Loops
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="loops-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/loops/main.cpp.html">main.cpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../demo/loops/main_cpp_proof/">main_cpp_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../further-reading/">External Resources</a>
+</li>
+
+
+      
+    
+      
+        
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../contributing/">Feedback</a>
+</li>
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#reference-docs-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../../reference/">
+    Reference Docs
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="reference-docs-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.core.hints.cancelx_notation/">DSL for defining hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.core.hints.orient/">Syntax for defining hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.cpp.Arith/">Tactics for arithmetics</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.cpp.auto_frac.hints/">Automatic Fractional Splitting</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.cpp.breakpoints/">Using breakpoints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.cpp.cpp_proof/">The <code>verify</code> notation</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.cpp.delayed_case_tactics/">Join points</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.cpp.elpi.derive.bi/">Derive instances for BI predicates</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.cpp.hints.fractional/">Common UNSAFE hints for <code>primR</code></a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.cpp.specs.inline/">Inlining during verification</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.elpi.cpp_class/">The <code>cpp.class</code> command</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.elpi.cpp_enum/">The <code>cpp.enum</code> command</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.elpi.cpp_spec/">The <code>cpp.spec</code> command</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.elpi.derive.bwd/">Derive <code>Bwd</code> hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.elpi.derive.cancel/">Derive <code>Cancel</code> hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.elpi.derive.eager_unfold/">Derive Eager unfolding hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.elpi.derive.equiv/">Derive equivalences for predicates</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.elpi.derive.fwd/">Derive <code>Fwd</code> hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.elpi.derive.hint_opaque/">Derive <code>Hint Opaque</code> annotations</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../../reference/bluerock.auto.elpi.derive.lazy_unfold/">Derive Lazy unfolding hints</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+
+      
+    
+      
+        
+
+
+      
+    
+  </ul>
+</div>
+
+      </aside>
+      <main class="bd-main order-1">
+        
+<h1>Exploring Programs in Logic</h1>
+
+<div class="alert alert-info" role="alert">
+  <b>Follow Along</b> by downloading the <a href="../main.v" download=""><i class="bi bi-download"></i>Rocq source of this tutorial</a>, or <a href="../../docs.tar.gz" download=""><i class="bi bi-download"></i>the full docs tarball</a>.<br>
+  <small>Some code is deliberately elided for presentation purposes, the full, working source code can be downloaded with the above link.</small><br>
+</div>
+
+<h2>Stepping Through Functions</h2>
+<p>In this tutorial we will learn how to use SkyLabs' automation to step
+through functions and verify them line-by-line.</p>
+<p>We'll consider the following function with the specification written in
+the documentation comment.</p>
+<pre class="language-cpp"><code class="language-cpp"><span class="token comment">/**
+ * \post emp
+ */</span>
+<span class="token keyword">void</span> <span class="token function">test</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">int</span> x <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  x<span class="token operator">++</span><span class="token punctuation">;</span>
+  x<span class="token operator">--</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
+<p>To understand this, we'll use SkyLabs' automation to teach us about
+the representation of the program state and how it evolves.</p>
+<h2>Exploring a C++ Function with SkyLabs Automation</h2>
+<p>With the specification, we can step through the function using
+the SkyLabs automation. The automation is structured to work like symbolic
+debugger. To start, we set up a proof of the function:</p>
+<pre class="language-coq"><code class="language-coq">  <span class="token keyword">Lemma</span> test_ok <span class="token punctuation">:</span> verify<span class="token punctuation">[</span>source<span class="token punctuation">]</span> <span class="token string">"test()"</span><span class="token punctuation">.</span>
+  <span class="token keyword">Proof</span><span class="token punctuation">.</span>
+    verify_spec<span class="token punctuation">.</span></code></pre>
+<p>At this point, the goal looks like the following</p>
+<pre class="language-coq"><code class="language-coq">  <span class="token keyword">_</span> <span class="token punctuation">:</span> denoteModule source  <span class="token comment">(* &lt; the program that we are working with *)</span>
+  <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>□
+  <span class="token keyword">_</span> <span class="token punctuation">:</span> PostCond             <span class="token comment">(* &lt; the post condition, we'll need this later *)</span>
+  <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>∗
+  <span class="token punctuation">:</span><span class="token punctuation">:</span>wpS  <span class="token comment">(* &lt; running a statement *)</span>
+    <span class="token punctuation">[</span>region<span class="token punctuation">:</span> <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token operator">?</span><span class="token punctuation">:</span> <span class="token string">"void"</span><span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token comment">(* &lt; the variables in scope *)</span>
+    <span class="token punctuation">(</span>Sseq
+       <span class="token punctuation">[</span>Sdecl <span class="token punctuation">[</span>Dvar <span class="token string">"x"</span> <span class="token string">"int"</span> <span class="token punctuation">(</span>Some <span class="token punctuation">(</span>Eint <span class="token number">0</span> <span class="token string">"int"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span> Sexpr <span class="token punctuation">(</span>core<span class="token punctuation">.</span>Epostinc <span class="token punctuation">(</span>Evar <span class="token string">"x"</span> <span class="token string">"int"</span><span class="token punctuation">)</span> <span class="token string">"int"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        Sexpr <span class="token punctuation">(</span>core<span class="token punctuation">.</span>Epostdec <span class="token punctuation">(</span>Evar <span class="token string">"x"</span> <span class="token string">"int"</span><span class="token punctuation">)</span> <span class="token string">"int"</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></code></pre>
+<p>Just like in a debugger, we can step forward in the program using the
+<code>run1</code> tactic, which will attempt to prove that the next step of the program is safe
+and step through it.</p>
+<pre class="language-coq"><code class="language-coq">  run1<span class="token punctuation">.</span></code></pre>
+<p>This invocation took us to the evaluation of the integer constant <code>0</code> that is
+the initializer for <code>x</code>. We can continue to step through the program with more
+invocations of <code>run1</code>, then complete the proof with <code>Qed</code>.
+If we are just exploring, we can use <code>Abort</code> instead of <code>Qed</code> to abort the proof.</p>
+<pre class="language-coq"><code class="language-coq">  run1<span class="token punctuation">.</span></code></pre>
+<p>After we complete the initialization, note that we get access to the ownership of the
+<code>x</code> variable. In particular, the goal reads:</p>
+<pre class="language-coq"><code class="language-coq">  <span class="token keyword">_</span> <span class="token punctuation">:</span> x_addr <span class="token operator">|-</span><span class="token operator">></span> intR <span class="token number">1</span>$m <span class="token number">0</span>
+  <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>∗
+  <span class="token punctuation">:</span><span class="token punctuation">:</span>wpS <span class="token punctuation">[</span>region<span class="token punctuation">:</span> <span class="token string">"x"</span> <span class="token operator">@</span> x_addr<span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token operator">?</span><span class="token punctuation">:</span> <span class="token string">"void"</span><span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">(</span>Sexpr <span class="token punctuation">(</span>Epostinc <span class="token punctuation">(</span>Evar <span class="token string">"x"</span> <span class="token string">"int"</span><span class="token punctuation">)</span> <span class="token string">"int"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>Above the line, we have the current state, i.e. full ownership of the program location for
+the variable <code>x</code> (<code>x_addr</code> corresponds to the pointer <code>&amp;x</code> in C++).
+Below the line, we see that we are evaluating the post-increment expression (<code>x++</code>).</p>
+<p>We can now continue stepping through the program. It takes three steps to get through the
+post-increment.</p>
+<pre class="language-coq"><code class="language-coq">  run1<span class="token punctuation">.</span> <span class="token comment">(* start evaluating the expression statement *)</span>
+  run1<span class="token punctuation">.</span> <span class="token comment">(* evaluate `x` *)</span>
+  run1<span class="token punctuation">.</span> <span class="token comment">(* evaluate the post-increment *)</span></code></pre>
+<p>At this point, we see that the value of <code>x</code> has been updated to <code>1</code> (though this form is unreduced), and we are left to prove the decrement.</p>
+<pre class="language-coq"><code class="language-coq">  <span class="token keyword">_</span> <span class="token punctuation">:</span> x_addr <span class="token operator">|-</span><span class="token operator">></span> intR <span class="token number">1</span>$m <span class="token punctuation">(</span><span class="token number">0</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>∗
+  <span class="token punctuation">:</span><span class="token punctuation">:</span>wpS <span class="token punctuation">[</span>region<span class="token punctuation">:</span> <span class="token string">"x"</span> <span class="token operator">@</span> x_addr<span class="token punctuation">;</span> <span class="token keyword">return</span> <span class="token punctuation">{</span><span class="token operator">?</span><span class="token punctuation">:</span> <span class="token string">"void"</span><span class="token punctuation">}</span><span class="token punctuation">]</span> <span class="token punctuation">(</span>Sexpr <span class="token punctuation">(</span>Epostdec <span class="token punctuation">(</span>Evar <span class="token string">"x"</span> <span class="token string">"int"</span><span class="token punctuation">)</span> <span class="token string">"int"</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre>
+<p>Another 3 <code>run1</code>s will get us through the decrement.</p>
+<pre class="language-coq"><code class="language-coq">  run1<span class="token punctuation">.</span>
+  run1<span class="token punctuation">.</span>
+  run1<span class="token punctuation">.</span></code></pre>
+<p>Now, we can see the value of <code>x</code> is updated one more time.</p>
+<pre class="language-coq"><code class="language-coq">  <span class="token keyword">_</span> <span class="token punctuation">:</span> x_addr <span class="token operator">|-</span><span class="token operator">></span> intR <span class="token number">1</span>$m <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span><span class="token operator">-</span>∗
+  destroy_val source <span class="token string">"int"</span> x_addr <span class="token punctuation">(</span>∀ p <span class="token punctuation">:</span> ptr<span class="token punctuation">,</span> p <span class="token operator">|-</span><span class="token operator">></span> primR <span class="token string">"void"</span> <span class="token number">1</span>$m Vvoid <span class="token operator">-</span>∗ ▷ _PostPred_ p<span class="token punctuation">)</span></code></pre>
+<p>At this point, we have reached the end of the function source code, but we are not quite done yet.
+In particular, we still need to destroy all of the stack allocated variables.
+Even though there are no destructors to run, the C++ machine must take the stack resources back which is captured by <code>destroy_val</code>.
+In particular, this says that we need to destroy an <code>int</code> value at the location <code>x_addr</code>.
+Again, we can step through this with <code>run1</code>.</p>
+<pre class="language-coq"><code class="language-coq">  run1<span class="token punctuation">.</span></code></pre>
+<p>In this case, <code>run1</code> not only stepped through the deallocation, but it also finished the proof so we don't get to see the final state.
+While this says that the post-condition was provable, it doesn't really let us <strong>see</strong> the final state.
+To see the final state, we can undo the last action and then take even smaller steps using the <code>step</code> tactic.</p>
+<pre class="language-coq"><code class="language-coq">  <span class="token keyword">Undo</span><span class="token punctuation">.</span>
+  step<span class="token punctuation">.</span> <span class="token comment">(* take a smaller step *)</span></code></pre>
+<p>After the smaller step, we see that the ownership of <code>x_addr</code> has been &quot;consumed&quot; by the <code>destroy_val</code> step.
+Though there is still some complexity in the goal.
+Here that complexity is due to the way that values (including <code>void</code> &quot;values&quot;) are returned; however,
+we won't go into that detail here.
+In general, while <code>step</code> is useful to see the fine-grained reasoning steps that the automation is using, it sometimes exposes internal details of the semantics that are not stable.
+In such cases, it is often useful to simply run <code>step</code> again to try to simplify the goal.</p>
+<p>We can continue to step using <code>step</code>, <code>run1</code>, or <code>go</code>.</p>
+<pre class="language-coq"><code class="language-coq">  run<span class="token punctuation">.</span></code></pre>
+<p>This finishes the proof allowing us to close the proof with <code>Qed</code>; however, in many cases during this sort of exploration we will not be able to close the proof, e.g. because there is a bug in the specification.
+If we want to keep the debugging proof script intact, we can use the <code>Abort</code> command to exit the proof without finishing it.</p>
+<pre class="language-coq"><code class="language-coq"><span class="token keyword">Abort</span><span class="token punctuation">.</span></code></pre>
+
+
+      </main>
+    </div>
+
+    <footer class="bd-footer py-4 py-md-5 mt-5">
+      <center>
+        <small>&copy; 2025 Skylabs AI</small>
+      </center>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script>
+        (async function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchGroup = document.getElementById('searchGroup');
+            const searchResults = document.createElement('div');
+            searchResults.id = 'searchResults';
+            searchResults.classList.add('list-group', 'mt-0');
+            searchGroup.appendChild(searchResults);
+
+            let idx;
+            let docs;
+
+            try {
+                const response = await fetch("/auto-docs/search-index.json");
+                docs = await response.json();
+
+                idx = lunr(function () {
+                    this.ref('url');
+                    this.field('title');
+                    this.field('content');
+
+                    docs.forEach(function (doc) {
+                        this.add(doc);
+                    }, this);
+                });
+            } catch (error) {
+                console.error('Error loading search index:', error);
+                return;
+            }
+
+            function hideSearchResults() {
+                searchResults.innerHTML = '';
+                searchResults.style.display = 'none';
+            }
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value;
+                searchResults.innerHTML = '';
+
+                if (query.length > 2) {
+                    const results = idx.search(query);
+                    results.forEach(result => {
+                        const doc = docs.find(d => d.url === result.ref);
+                        if (doc) {
+                            const a = document.createElement('a');
+                            a.href = '/auto-docs' + doc.url;
+                            a.classList.add('list-group-item', 'list-group-item-action');
+                            a.textContent = doc.title;
+                            searchResults.appendChild(a);
+                        }
+                    });
+                    searchResults.style.display = 'block';
+                } else {
+                    hideSearchResults();
+                }
+            });
+
+            // Hide search results when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!searchGroup.contains(event.target)) {
+                    hideSearchResults();
+                }
+            });
+
+            // Hide search results initially
+            hideSearchResults();
+
+        })();
+    </script>
+</body>
+</html>

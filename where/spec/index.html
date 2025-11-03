@@ -1,0 +1,1285 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <title>FM Docs</title>
+  
+  <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link href="https://unpkg.com/prismjs@1.20.0/themes/prism-okaidia.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <script>
+    (() => {
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        const navbarLogo = document.getElementById('navbar-logo');
+        if (navbarLogo) {
+            navbarLogo.src = currentTheme === 'dark' ? '/auto-docs/assets/skylabs_logo_white.svg' : '/auto-docs/assets/skylabs_logo_black.svg';
+        }
+    })();
+  </script>
+  <script src="../../assets/js/theme-switcher.js"></script>
+</head>
+<body>
+  <header class="navbar navbar-expand-lg bd-navbar sticky-top navbar-light border-bottom">
+    <nav class="container bd-gutter flex-wrap flex-lg-nowrap py-1">
+      <a class="navbar-brand" style="font-size: 1.424rem; font-weight: 600; display: flex; align-items: center; gap: 8pt" href="../../">
+       <img id="navbar-logo" src="../../assets/skylabs_logo_black.svg" style="height: 20pt">
+       Skylabs AI
+       <span style="font-size: 1.266rem; font-weight:400; opacity:0.6" class="site-title-suffix"> | FM Docs</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item border rounded shadow-sm">
+            <div class="input-group" id="searchGroup">
+              <span class="input-group-text bg-transparent border-0"><i class="fa-solid fa-magnifying-glass"></i></span>
+              <input name="Search" type="search" id="searchInput" class="form-control bg-transparent text-black" placeholder="Search..." aria-label="Search" value="">
+            </div>
+          </li>
+          <li class="nav-item d-flex align-items-center ms-2">
+            <div id="theme-switcher" class="theme-switcher d-flex align-items-center" style="cursor: pointer;">
+                <i class="fas fa-sun text-warning me-2"></i>
+                <i class="fas fa-moon text-dark"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+         
+  </header>
+
+    <div class="container bd-gutter mt-3 my-md-4 bd-layout" style="display: grid; grid-template-areas: 'sidebar main'; grid-template-columns: 1fr 5fr; gap: 0.5rem;">
+      <aside class="bd-sidebar" style="grid-area: 'sidebar'">
+        
+
+
+
+<div class="flex-shrink-0" style="min-width: 250pt;">
+  <ul class="list-unstyled ps-0 mx-3" id="sidebar">
+    
+    
+      
+        
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../">Home</a>
+</li>
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#quick-start-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../quick-start/">
+    Quick Start
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="quick-start-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../setup/">Setup</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/simple/test/">Very First Verification</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/state_basics/main/">Basics about Program State</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/primitive_reps/main/">Primitive Data</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/debugging/main/">Exploring Programs in Logic</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#learn-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../learn/">
+    Learn
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="learn-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#functions-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../docs/functions/">
+    Functions
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="functions-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/functions/specification/">Function Specifications</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/functions/verification/">Verifying Some Examples</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#control-flow-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../docs/control-flow/">
+    Control Flow
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="control-flow-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/control_flow/if/"><code>if</code> Statements</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/control_flow/loop/">Loop Invariants</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#classes-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../docs/class_reps/classes/">
+    Classes
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="classes-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/class_reps/main/">Class Representation Predicates</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/class_reps/alt/">Class Representation Predicates, alternative</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/rep_hints/main/">Hints about Reps</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/fractional-sharing/intro/">Sharing with Fractional Permissions</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#troubleshooting-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../troubleshooting/">
+    Troubleshooting
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="troubleshooting-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../docs/common_errors/missing_type_instances/">Dealing with Missing Type Instances</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#scaffold-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../scaffold/">
+    Scaffold
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="scaffold-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../scaffold/getting-started/">Getting Started</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../scaffold/default-specs/">Using Default Specifications</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../scaffold/by_hand/">Providing a Specification by Hand</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#demos-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../demo/">
+    Demos
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="demos-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#point-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../demo/aggregate01/README/">
+    Point
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="point-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/aggregate01/Point.hpp.html">Point.hpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/aggregate01/Point_hpp_spec/">Point_hpp_spec.v</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/aggregate01/Point_hpp_proof/">Point_hpp_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#basics-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../demo/basic/README/">
+    Basics
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="basics-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/basic/main.cpp.html">main.cpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/basic/main_cpp_proof/">main_cpp_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#dataclass-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../demo/data_class/README/">
+    Dataclass
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="dataclass-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/data_class/main.cpp.html">main.cpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/data_class/main_proof/">main_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#forward-list-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../demo/forward_list_v1/README/">
+    Forward List
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="forward-list-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/forward_list_v1/test.cpp.html">test.cpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/forward_list_v1/test_cpp_proof/">test_cpp_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#inlining-specifications-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../demo/inline/README/">
+    Inlining Specifications
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="inlining-specifications-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/inline/inline.hpp.html">inline.hpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/inline/inline_hpp_spec/">inline_hpp_spec.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#singly-linked-list-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../demo/linked_list/README/">
+    Singly-linked List
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="singly-linked-list-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/linked_list/linked_list.hpp.html">linked_list.hpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/linked_list/linked_list.cpp.html">linked_list.cpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/linked_list/linked_list_hpp_spec/">linked_list_hpp_spec.v</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/linked_list/linked_list_cpp_proof/">linked_list_cpp_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+        
+          
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#loops-collapse" class=" sidebar-child d-flex justify-content-between sidebar-child-list">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../demo/loops/README/">
+    Loops
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="loops-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/loops/main.cpp.html">main.cpp</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../demo/loops/main_cpp_proof/">main_cpp_proof.v</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../further-reading/">External Resources</a>
+</li>
+
+
+      
+    
+      
+        
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../contributing/">Feedback</a>
+</li>
+
+
+      
+    
+      
+        
+
+   
+       <li data-bs-toggle="collapse" data-bs-target="#reference-docs-collapse" class=" sidebar-child d-flex justify-content-between ">
+  
+  <a class="nav-link px-0" style="display: inline" href="../../reference/">
+    Reference Docs
+  </a>
+  <button class="btn sidebar-toggle align-items-center rounded px-1">
+  </button>
+</li>
+
+  <div class="collapse" id="reference-docs-collapse">
+    <ul class="sidebar-toggle-nav list-unstyled fw-normal pb-1  small">
+      
+
+      
+        
+      
+
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.core.hints.cancelx_notation/">DSL for defining hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.core.hints.orient/">Syntax for defining hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.cpp.Arith/">Tactics for arithmetics</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.cpp.auto_frac.hints/">Automatic Fractional Splitting</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.cpp.breakpoints/">Using breakpoints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.cpp.cpp_proof/">The <code>verify</code> notation</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.cpp.delayed_case_tactics/">Join points</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.cpp.elpi.derive.bi/">Derive instances for BI predicates</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.cpp.hints.fractional/">Common UNSAFE hints for <code>primR</code></a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.cpp.specs.inline/">Inlining during verification</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.elpi.cpp_class/">The <code>cpp.class</code> command</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.elpi.cpp_enum/">The <code>cpp.enum</code> command</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.elpi.cpp_spec/">The <code>cpp.spec</code> command</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.elpi.derive.bwd/">Derive <code>Bwd</code> hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.elpi.derive.cancel/">Derive <code>Cancel</code> hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.elpi.derive.eager_unfold/">Derive Eager unfolding hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.elpi.derive.equiv/">Derive equivalences for predicates</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.elpi.derive.fwd/">Derive <code>Fwd</code> hints</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.elpi.derive.hint_opaque/">Derive <code>Hint Opaque</code> annotations</a>
+</li>
+
+
+        
+      
+        
+          
+
+<li class="mb-1 py-1 sidebar-child">
+  <a class="nav-link" href="../../reference/bluerock.auto.elpi.derive.lazy_unfold/">Derive Lazy unfolding hints</a>
+</li>
+
+
+        
+      
+    </ul>
+  </div>
+
+
+
+      
+    
+      
+        
+
+
+      
+    
+      
+        
+
+
+      
+    
+  </ul>
+</div>
+
+      </aside>
+      <main class="bd-main order-1">
+        
+        
+<h1>Documents that provide "spec"</h1>
+
+<ul>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <li><a href="../../docs/simple/test/">Very First Verification</a></li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</ul>
+
+        
+      </main>
+    </div>
+
+    <footer class="bd-footer py-4 py-md-5 mt-5">
+      <center>
+        <small>&copy; 2025 Skylabs AI</small>
+      </center>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script>
+        (async function() {
+            const searchInput = document.getElementById('searchInput');
+            const searchGroup = document.getElementById('searchGroup');
+            const searchResults = document.createElement('div');
+            searchResults.id = 'searchResults';
+            searchResults.classList.add('list-group', 'mt-0');
+            searchGroup.appendChild(searchResults);
+
+            let idx;
+            let docs;
+
+            try {
+                const response = await fetch("/auto-docs/search-index.json");
+                docs = await response.json();
+
+                idx = lunr(function () {
+                    this.ref('url');
+                    this.field('title');
+                    this.field('content');
+
+                    docs.forEach(function (doc) {
+                        this.add(doc);
+                    }, this);
+                });
+            } catch (error) {
+                console.error('Error loading search index:', error);
+                return;
+            }
+
+            function hideSearchResults() {
+                searchResults.innerHTML = '';
+                searchResults.style.display = 'none';
+            }
+
+            searchInput.addEventListener('input', function() {
+                const query = this.value;
+                searchResults.innerHTML = '';
+
+                if (query.length > 2) {
+                    const results = idx.search(query);
+                    results.forEach(result => {
+                        const doc = docs.find(d => d.url === result.ref);
+                        if (doc) {
+                            const a = document.createElement('a');
+                            a.href = '/auto-docs' + doc.url;
+                            a.classList.add('list-group-item', 'list-group-item-action');
+                            a.textContent = doc.title;
+                            searchResults.appendChild(a);
+                        }
+                    });
+                    searchResults.style.display = 'block';
+                } else {
+                    hideSearchResults();
+                }
+            });
+
+            // Hide search results when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!searchGroup.contains(event.target)) {
+                    hideSearchResults();
+                }
+            });
+
+            // Hide search results initially
+            hideSearchResults();
+
+        })();
+    </script>
+</body>
+</html>
