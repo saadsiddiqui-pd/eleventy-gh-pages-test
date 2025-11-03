@@ -1,0 +1,7 @@
+title: "Dealing with Missing Type Instances"
+tags:
+  - "common_errors"
+eleventyNavigation:
+  key: missing-type-instances
+  parent : troubleshooting
+  order : 200
