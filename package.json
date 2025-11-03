@@ -11,6 +11,7 @@
     "watch": "npx @11ty/eleventy --serve --watch --pathprefix=/auto-docs/",
     "build-ghpages": "npx @11ty/eleventy --pathprefix=/auto-docs/ --output=_github"
   },
+  
   "keywords": [],
   "author": "",
   "license": "ISC",
